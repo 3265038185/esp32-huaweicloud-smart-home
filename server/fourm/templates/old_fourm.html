@@ -1,0 +1,232 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{% static 'fourm/css/animate.css' %}">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{% static 'fourm/css/icomoon.css' %}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{% static 'fourm/css/bootstrap.css' %}">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="{% static 'fourm/css/style.css' %}">
+
+    <!-- Modernizr JS -->
+    <script src="{% static 'fourm/js/modernizr-2.6.2.min.js' %}"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+	<script src="{% static 'fourm/js/respond.min.js' %}"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+<div class="fh5co-loader"></div>
+
+<div id="page">
+    <div id="fh5co-aside" style="background-image: url({% static 'fourm/images/image_1.jpg' %})">
+        <div class="overlay"></div>
+        <nav role="navigation">
+            <ul>
+                <li><a href="/index"><i class="icon-home"></i></a></li>
+            </ul>
+        </nav>
+        <div class="featured">
+            <span>Bio</span>
+            <h2>I'm {{ request.session.user_name }}, Creative Director</h2>
+        </div>
+    </div>
+    <div id="fh5co-main-content">
+        <div class="fh5co-post">
+
+
+
+
+
+
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-1.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.1.time }}</span>
+                        <h2><a href="single.html">{{ list.1.comment }}</a></h2>
+                        <p>{{ list.1.name }}</p>
+                    </div>
+                </div>
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-2.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.2.time }}</span>
+                        <h2><a href="single.html">{{ list.2.comment }}</a></h2>
+                        <p>{{ list.2.name }}</p>
+                    </div>
+                </div>
+
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-3.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.3.time }}</span>
+                        <h2><a href="single.html">{{ list.3.comment }}</a></h2>
+                        <p>{{ list.3.name }}</p>
+                    </div>
+                </div>
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-4.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.4.time }}</span>
+                        <h2><a href="single.html">{{ list.4.comment }}</a></h2>
+                        <p>{{ list.4.name }}</p>
+                    </div>
+                </div>
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-5.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.5.time }}</span>
+                        <h2><a href="single.html">{{ list.5.comment }}</a></h2>
+                        <p>{{ list.5.name }}</p>
+                    </div>
+                </div>
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-6.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.6.time }}</span>
+                        <h2><a href="single.html">{{ list.6.comment }}</a></h2>
+                        <p>{{ list.6.name }}</p>
+                    </div>
+                </div>
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-7.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.7.time }}</span>
+                        <h2><a href="single.html">{{ list.7.comment }}</a></h2>
+                        <p>{{ list.7.name }}</p>
+                    </div>
+                </div>
+                <div class="fh5co-entry padding">
+                    <img src="{% static 'fourm/images/project-8.jpg' %}" alt="Free HTML5 Bootstrap Template by ">
+                    <div>
+                        <span class="fh5co-post-date">{{ list.8.time }}</span>
+                        <h2><a href="single.html">{{ list.8.comment }}</a></h2>
+                        <p>{{ list.8.name }}</p>
+                    </div>
+                </div>
+
+
+
+
+
+
+        {% if pIndex <= 3 %}
+            <div>
+                <div class="col-md-3"></div>
+                <nav aria-label="Page navigation " class="col-md-8">
+
+                    <ul class="pagination">
+
+                        {% if pIndex == 1 %}
+                        <li>
+                            <a href="/fourm1" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                            {% else %}
+                        <li>
+                            <a href="/fourm{{ l_pIndex }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+
+                        <li><a href="/fourm1">1</a></li>
+                        <li><a href="/fourm2">2</a></li>
+                        <li><a href="/fourm3">3</a></li>
+                        <li><a href="/fourm4">4</a></li>
+                        <li><a href="/fourm5">5</a></li>
+                        <li>
+                            <a href="/fourm{{ n_pIndex }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="col-md-3"></div>
+            </div>
+        {% else %}
+            <div>
+                <div class="col-md-3"></div>
+                <nav aria-label="Page navigation " class="col-md-8">
+
+                    <ul class="pagination">
+                        <li>
+                            <a href="/fourm{{ l_pIndex }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="/fourm{{ ll_pIndex }}">{{ ll_pIndex }}</a></li>
+                        <li><a href="/fourm{{ l_pIndex }}">{{ l_pIndex }}</a></li>
+                        <li><a href="/fourm{{ pIndex }}">{{ pIndex }}</a></li>
+                        <li><a href="/fourm{{ n_pIndex }}">{{ n_pIndex }}</a></li>
+                        <li><a href="/fourm{{ nn_pIndex }}">{{ nn_pIndex }}</a></li>
+
+                        <li>
+                            <a href="/fourm{{ n_pIndex }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="col-md-3"></div>
+            </div>
+        {% endif %}
+
+            <footer>
+                <div>
+                    Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
+                                                                              href="http://www.freemoban.com/">www.freemoban.com</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="{% static 'fourm/js/jquery.min.js' %}"></script>
+<!-- jQuery Easing -->
+<script src="{% static 'fourm/js/jquery.easing.1.3.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'fourm/js/bootstrap.min.js' %}"></script>
+<!-- Waypoints -->
+<script src="{% static 'fourm/js/jquery.waypoints.min.js' %}"></script>
+<!-- Stellar Parallax -->
+<script src="{% static 'fourm/js/jquery.stellar.min.js' %}"></script>
+<!-- Main -->
+<script src="{% static 'fourm/js/main.js' %}"></script>
+
+</body>
+</html>

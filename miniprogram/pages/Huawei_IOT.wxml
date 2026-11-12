@@ -1,0 +1,40 @@
+<!--pages/Huawei_IOT.wxml-->
+<!--标题-->
+<text class="text_bkti_wxss">起飞~直接起飞~~\n</text>
+<!--操作提示-->
+
+<text >当前操作步提示：\n</text><view class="view_tiii_wxss">
+<text class="text_tiii2_wxss">{{result}}</text>
+</view>
+
+<!--功能按钮-->
+<button class="buttonwxss" bindtap="touchBtn_gettoken">获取token</button>
+<text class="text_hbtk_wxsss">\n</text>
+<button class="buttonwxss" bindtap="touchBtn_getshadow">获取影子</button>
+
+<!--三个滑块-->
+<text class="text_hbtk_wxsss">控制1号电机</text>
+<slider class="slider-light"  show-value  bindchange="slidervalue1"/>
+<text class="text_hbtk_wxsss">控制2号电机</text>
+<slider class="slider-light"  show-value  bindchange="slidervalue2"/>
+<text class="text_hbtk_wxsss">控制3号电机</text>
+<slider class="slider-light"  show-value  bindchange="slidervalue3"/>
+
+<button class="buttonwxss"bindtap="touchBtn_setCommand">命令下发</button>
+<text >\n</text>
+
+
+<!--日志-->
+<view class="view_rivi_wxss">
+<text >日志展示区：</text>
+<button  class="buttonwxss" bindtap="kill">清空</button>
+<!--日志滚动-->
+<text >data：\n</text>
+<text class="text_rivi_wxsss">{{Text}}</text>
+</view>
+
+
+<!--版权声明预留位置-->
+<view class="view_bfqc_wxss">
+<text class="text_bfqc_wxsss">Ctrl CV工程师</text>
+</view>

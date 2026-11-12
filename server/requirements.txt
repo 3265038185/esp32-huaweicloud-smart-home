@@ -1,0 +1,7 @@
+# Legacy course project: Django 1.8.x requires an old Python (3.5 era).
+# If you want to run it on a modern Python, upgrade Django and the
+# MIDDLEWARE_CLASSES / url() code first.
+Django==1.8.2
+mysqlclient==1.3.14
+huaweicloudsdkcore>=3.0.0
+huaweicloudsdkiotda>=3.0.0

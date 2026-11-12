@@ -1,0 +1,433 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+  <title>Dashboard &mdash; Stisla</title>
+
+
+    <link rel="stylesheet" href="{% static 'fourm/modules/bootstrap/css/bootstrap.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'fourm/modules/ionicons/css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fourm/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'fourm/modules/summernote/summernote-lite.css' %}">
+  <link rel="stylesheet" href="{% static 'fourm/modules/flag-icon-css/css/flag-icon.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fourm/css/demo.css' %}">
+  <link rel="stylesheet" href="{% static 'fourm/css/style.css' %}">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">View All</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="{% static 'fourm/img/avatar/avatar-1.jpeg' %}" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="{% static 'fourm/img/avatar/avatar-2.jpeg' %}" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="{% static 'fourm/img/avatar/avatar-3.jpeg' %}" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="{% static 'fourm/img/avatar/avatar-4.jpeg' %}" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="{% static 'fourm/img/avatar/avatar-5.jpeg' %}" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+            <i class="ion ion-android-person d-lg-none"></i>
+            <div class="d-sm-none d-lg-inline-block">{{ request.session.user_name }}</div></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="profile.html" class="dropdown-item has-icon">
+                <i class="ion ion-android-person"></i> Profile
+              </a>
+              <a href="#" class="dropdown-item has-icon">
+                <i class="ion ion-log-out"></i> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">Stisla Lite</a>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="{% static 'fourm/img/avatar/avatar-1.jpeg' %}">
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name">{{ request.session.user_name }}</div>
+              <div class="user-role">
+                管理员
+              </div>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">控制台</li>
+            <li class="active">
+              <a href="index.html"><i class="ion ion-speedometer"></i><span>当前数据</span></a>
+            </li>
+
+            <li class="menu-header">部件</li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>架构</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Basic</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Main Components</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Buttons</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Toastr</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>标记</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Ion Icons</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Font Awesome</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Flag</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-clipboard"></i><span>历史操作</span></a>
+            </li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-stats-bars"></i><span>图表</span></a>
+            </li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-location-outline"></i><span>地图</span></a>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>实例</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Login</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Register</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Forgot Password</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Reset Password</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> 404</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-header">More</li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 关注我</a>
+              <ul class="menu-dropdown">
+                <li><a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-circle-outline"></i> Menu 1</a></li>
+                <li><a href="https://blog.csdn.net/weixin_43898067" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                  <ul class="menu-dropdown">
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                      <ul class="menu-dropdown">
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-heart"></i> 点赞 <div class="badge badge-primary">10</div></a>
+            </li>
+            <li>
+              <a href="https://blog.csdn.net/weixin_43898067"><i class="ion ion-ios-information-outline"></i> <Credits>详情</Credits></a>
+            </li>          </ul>
+          <div class="p-3 mt-4 mb-4">
+            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+              <i class="ion ion-help-buoy"></i> <div>Go PRO!</div>
+            </a>
+          </div>
+        </aside>
+      </div>
+      <div class="main-content">
+        <section class="section">
+          <h1 class="section-header">
+            <div>监控平台</div>
+          </h1>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                  <i class="ion ion-person"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>实时人员</h4>
+                  </div>
+                  <div class="card-body">
+                    10
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-danger">
+                  <i class="ion ion-ios-paper-outline"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>温度</h4>
+                  </div>
+                  <div class="card-body"  >
+                      <h5>{{  temperature }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-warning">
+                  <i class="ion ion-paper-airplane"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>湿度</h4>
+                  </div>
+                  <div class="card-body">
+                     <h5>{{  humidity }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-success">
+                  <i class="ion ion-record"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>电量提醒</h4>
+                  </div>
+                  <div class="card-body">
+
+                    <h5>{{  battery }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>                  
+          </div>
+          <div class="row">
+            <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="float-right">
+                    <div class="btn-group">
+                      <a href="#" class="btn active">Week</a>
+                      <a href="#" class="btn">Month</a>
+                      <a href="#" class="btn">Year</a>
+                    </div>
+                  </div>
+                  <h4>人流分析</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="myChart" height="158"></canvas>
+                  <div class="statistic-details mt-sm-4">
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-primary"><i class="ion-arrow-up-b"></i></span> 7%</small>
+                      <div class="detail-value">243</div>
+                      <div class="detail-name">今天人数</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-danger"><i class="ion-arrow-down-b"></i></span> 23%</small>
+                      <div class="detail-value">2,902</div>
+                      <div class="detail-name">本周人数</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-primary"><i class="ion-arrow-up-b"></i></span>9%</small>
+                      <div class="detail-value">12,821</div>
+                      <div class="detail-name">本月人数</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-primary"><i class="ion-arrow-up-b"></i></span> 19%</small>
+                      <div class="detail-value">92,142</div>
+                      <div class="detail-name">今年人数</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>最新动态</h4>
+                </div>
+                <div class="card-body">             
+                  <ul class="list-unstyled list-unstyled-border">
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="{% static 'fourm/img/avatar/avatar-1.jpeg' %}" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>10m</small></div>
+                        <div class="media-title">python开发华为云应用侧进行设备接入</div>
+                        <small>用python接入华为云,最自己的IOT设备进行监督,这算是做一个应用端吧,把之前没有写好的补上,华为家的名字也是奇奇怪怪,反正就是自己的python连接华为云读取设备...</small>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="{% static 'fourm/img/avatar/avatar-2.jpeg' %}" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>23m</small></div>
+                        <div class="media-title">华为iot基于arm使用温湿度传感器                                   </div>
+                        <small>用之前的温湿度模块和iot平台的经验,引脚口使用... </small>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="{% static 'fourm/img/avatar/avatar-3.jpeg' %}" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>45m</small></div>
+                        <div class="media-title">反汇编arm的.so库,查看源码,嵌入式工程师学习IDA</div>
+                        <small>最近写摄像头,有些函数封装在库里 函数看不见,只有头文件,我们作为嵌入式工程师,不看源码,只看头文件,知道怎么调用是不行的...</small>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="{% static 'fourm/img/avatar/avatar-4.jpeg' %}" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>50m</small></div>
+                        <div class="media-title">arm里使用mmap---＞虚拟地址映射:探究虚拟内存         </div>
+                        <small>cpu操作的内存和实际内存不相同 cpu得到的是mmu分配的虚拟地址,而嵌入式操作的硬件一般都是实际的想操作物理地址–>寄存器,frameniffer...</small>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-primary btn-round" >
+                      查看所有
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-md-12 col-12 col-sm-12">
+              <form action="post_meaage/" method="get" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="card">
+                  <div class="card-header">
+                    <h4>下发命令</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label>命令</label>
+                      <input type="text" name="command" class="form-control" required>
+                      <div class="invalid-feedback">
+                        Please fill in the title
+                      </div>
+                    </div>
+                    <div class="form-group">
+                     <label>参数</label>
+                      <input type="text" name="arg" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary" action="login_check/">发送命令</button>
+                  </div>
+                </div>
+              </form>
+
+
+            </div>
+
+
+
+
+  <script src="{% static 'fourm/modules/jquery.min.js' %}"></script>
+  <script src="{% static 'fourm/modules/popper.js' %}"></script>
+  <script src="{% static 'fourm/modules/tooltip.js' %}"></script>
+  <script src="{% static 'fourm/modules/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'fourm/modules/nicescroll/jquery.nicescroll.min.js' %}"></script>
+  <script src="{% static 'fourm/modules/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+  <script src="{% static 'fourm/js/sa-functions.js' %}"></script>
+  
+  <script src="{% static 'fourm/modules/chart.min.js' %}"></script>
+  <script src="{% static 'fourm/modules/summernote/summernote-lite.js' %}"></script>
+
+  <script>
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      datasets: [{
+        label: 'Statistics',
+        data: [460, 458, 330, 502, 430, 610, 488],
+        borderWidth: 2,
+        backgroundColor: 'rgb(87,75,144)',
+        borderColor: 'rgb(87,75,144)',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#ffffff',
+        pointRadius: 4
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            stepSize: 150
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }]
+      },
+    }
+  });
+  </script>
+  <script src="{% static 'fourm/js/custom.js' %}"></script>
+  <script src="{% static 'fourm/js/demo.js' %}"></script>
+</body>
+</html>
